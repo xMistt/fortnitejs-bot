@@ -82,7 +82,7 @@ for (var i = 0; i < 1e7; i++) {
           sleep(200);
           eg.acceptFriendRequest(friendops.friend.id)
         }else {
-          eg.communicator.sendMessage(friendops.friend.id, "Sorry, this bot is closed beta access. DM stwleakss#0001 on discord for more info on how to get into closed beta.");
+          eg.communicator.sendMessage(friendops.friend.id, "Sorry, this bot is closed beta access. DM <INSERT YOUR DISCORD> on discord for more info on how to get into closed beta.");
           sleep(200);
           eg.declineFriendRequest(friendops.friend.id)
         }

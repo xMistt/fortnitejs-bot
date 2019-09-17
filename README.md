@@ -20,7 +20,7 @@ First you will need to clone the repository, then use ``npm install`` to install
       "banned_color" : "defaultcolor",
       "banned_level" : "100",
       "friendaccept" : "false"
-}```
+} ```
 
 After you've done that and filled out all of the fields, just run the bot by typing ``node index.js``.
 

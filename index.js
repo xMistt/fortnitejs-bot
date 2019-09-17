@@ -154,6 +154,15 @@ for (var i = 0; i < 1e7; i++) {
             eg.communicator.sendMessage(data.friend.id, "Please use Pickaxe_ID");
           }
         }
+	      
+        if(args[0].toLowerCase() == "!legacypickaxe"){
+          try {
+            fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + args[0] + "." + args[0]);
+            eg.communicator.sendMessage(data.friend.id, "Pickaxe set to " + args[0]);
+          } catch {
+            eg.communicator.sendMessage(data.friend.id, "Please use Pickaxe_ID");
+          }
+        }
         
         if(args[0].includes('raiderspoint')){
           PICKAXE_ID = args[0];

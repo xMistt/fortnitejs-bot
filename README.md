@@ -6,7 +6,7 @@ You will need:
 * node.js
 * spare epic games account
 
-Clone the repository, then use ``npm install`` to install the required packages for the bot run. After that, create a file named config.json. Feel free to copy the config I made below:
+First you will need to clone the repository, then use ``npm install`` to install the required packages for the bot run. After that, create a file named config.json. Feel free to copy the config I made below:
 
 ```{
       "email"  : "email@gmail.com",
@@ -20,7 +20,7 @@ Clone the repository, then use ``npm install`` to install the required packages 
       "banned_color" : "defaultcolor",
       "banned_level" : "100",
       "friendaccept" : "false"
-}````
+}```
 
 After you've done that and filled out all of the fields, just run the bot by typing ``node index.js``.
 

@@ -11,7 +11,7 @@ First you will need to clone the repository, then use ``npm install`` to install
 ```{
       "email"  : "email@gmail.com",
       "password" : "password123",
-      "netcl" : "7786267",
+      "netcl" : "8371706",
       "cid" : "CID_029_Athena_Commando_F_Halloween",
       "bid" : "BID_105_GhostPortal",
       "eid" : "EID_Glitter",

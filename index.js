@@ -100,6 +100,7 @@ for (var i = 0; i < 1e7; i++) {
           try {
             fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
             eg.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
+            console.log(`Skin set to` + args[0]);
           } catch {
             eg.communicator.sendMessage(data.friend.id, "Please use CID");
           }
@@ -110,6 +111,7 @@ for (var i = 0; i < 1e7; i++) {
           try {
             fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/CID_029_Athena_Commando_F_Halloween.CID_029_Athena_Commando_F_Halloween");
             eg.communicator.sendMessage(data.friend.id, "Skin set to Ghoul Trooper.");
+            console.log(`Skin set to Ghoul Trooper`);
           } catch {
             eg.communicator.sendMessage(data.friend.id, "Please use CID");
           }
@@ -120,6 +122,7 @@ for (var i = 0; i < 1e7; i++) {
           try {
             fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/CID_028_Athena_Commando_F.CID_028_Athena_Commando_F");
             eg.communicator.sendMessage(data.friend.id, "Skin set to Renegade Raider.");
+            console.log(`Skin set to Renegade Raider`);
           } catch {
             eg.communicator.sendMessage(data.friend.id, "Please use CID");
           }
@@ -130,6 +133,7 @@ for (var i = 0; i < 1e7; i++) {
           try {
             fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/CID_051_Athena_Commando_M_HolidayElf.CID_051_Athena_Commando_M_HolidayElf");
             eg.communicator.sendMessage(data.friend.id, "Skin set to Codename E.L.F.");
+            console.log(`Skin set to Codename E.L.F`);
           } catch {
             eg.communicator.sendMessage(data.friend.id, "Please use CID");
           }
@@ -140,6 +144,7 @@ for (var i = 0; i < 1e7; i++) {
           try {
             fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + args[0] + "." + args[0]);
             eg.communicator.sendMessage(data.friend.id, "Emote set to " + args[0]);
+            console.log(`Emote set to` + args[0]);
           } catch {
             eg.communicator.sendMessage(data.friend.id, "Please use EID");
           }
@@ -150,6 +155,7 @@ for (var i = 0; i < 1e7; i++) {
           try {
             fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + args[0] + "." + args[0]);
             eg.communicator.sendMessage(data.friend.id, "Pickaxe set to " + args[0]);
+            console.log(`Pickaxe set to` + args[0]);
           } catch {
             eg.communicator.sendMessage(data.friend.id, "Please use Pickaxe_ID");
           }
@@ -159,6 +165,7 @@ for (var i = 0; i < 1e7; i++) {
           try {
             fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + args[0] + "." + args[0]);
             eg.communicator.sendMessage(data.friend.id, "Pickaxe set to " + args[0]);
+            console.log(`Pickaxe set to` + args[0]);
           } catch {
             eg.communicator.sendMessage(data.friend.id, "Please use Pickaxe_ID");
           }
@@ -171,6 +178,7 @@ for (var i = 0; i < 1e7; i++) {
                 fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/EID_IceKing.EID_IceKing");
 
             eg.communicator.sendMessage(data.friend.id, "Pickaxe set to Raiders Revenge & Point It Out played.");
+            console.log(`Pickaxe set to Raiders Revenge & Point It Out played.`);
           } catch {
             eg.communicator.sendMessage(data.friend.id, "Please use Pickaxe_ID");
           }
@@ -181,6 +189,7 @@ for (var i = 0; i < 1e7; i++) {
           try {
             fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + args[0] + "." + args[0]);
             eg.communicator.sendMessage(data.friend.id, "Backbling set to " + args[0]);
+            console.log(`Backbling set to` + args[0]);
           } catch {
             eg.communicator.sendMessage(data.friend.id, "Please use BID");
           }
@@ -190,6 +199,7 @@ for (var i = 0; i < 1e7; i++) {
             var mess = data.message.replace("!status", "");
             fortnite.communicator.updateStatus(mess);
             communicator.sendMessage(data.friend.id, 'Status set to ' + mess + "!");
+            console.log(`Skin set to` + mess);
     }
 
     if (args[0].toLowerCase() == "!update"){
@@ -206,6 +216,7 @@ for (var i = 0; i < 1e7; i++) {
           try {
             fortnite.party.me.setBanner(100, args[1], args[2]);
             eg.communicator.sendMessage(data.friend.id, "Banner set to " + args[1] + " " + args[2]);
+            console.log(`Skin set to` + args[1] + args[2]);
           } catch {
             eg.communicator.sendMessage(data.friend.id, "Please use !banner BANNER COLOR");
           }

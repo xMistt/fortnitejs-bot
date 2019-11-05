@@ -1,13 +1,13 @@
 {
-    "email"  : "email@gmail.com",
-    "password" : "password123",
-    "netcl" : "8371783",
-    "cid" : "CID_029_Athena_Commando_F_Halloween",
-    "bid" : "BID_105_GhostPortal",
-    "eid" : "EID_Glitter",
-    "pickaxe_id" : "Pickaxe_ID_116_Celestial",
-    "banner" : "InfluencerBanner57",
-    "banned_color" : "defaultcolor",
-    "banned_level" : "100",
+    "email": "",
+    "password": "",
+    "CID": "CID_028_Athena_Commando_F",
+    "BID": "BID_004_BlackKnight",
+    "EID": "EID_Zombie",
+    "PICKAXE_ID": "Pickaxe_Lockjaw",
+    "banner": "InfluencerBanner57",
+    "banned_color": "defaultcolor",
+    "level": "21",
+    "status": "JavaScript!",
     "friendaccept" : "false"
 }

@@ -142,12 +142,32 @@ async function BenBotRequest(cosmeticType, cosmeticSearch) {
         }
 
         if(args[0] == '!purpleskull') {
-          const variants = [{"item":"AthenaCharacter","channel":"Progressive","variant":"Stage3"},
-          {"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}];
+          const variants = [{"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}];
     
           setOutfitVariants(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/CID_030_Athena_Commando_M_Halloween.CID_030_Athena_Commando_M_Halloween", undefined, variants)
           eg.communicator.sendMessage(data.friend.id, "Skin set to Purple Skull.");
         }     
+
+        if(args[0] == '!pinkghoul') {
+          const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat3"}];
+    
+          setOutfitVariants(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/CID_029_Athena_Commando_F_Halloween.CID_029_Athena_Commando_F_Halloween", undefined, variants)
+          eg.communicator.sendMessage(data.friend.id, "Skin set to Pink Ghoul.");
+        }
+
+        if(args[0] == '!checkeredrenegade') {
+          const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}];
+    
+          setOutfitVariants(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/CID_028_Athena_Commando_F.CID_028_Athena_Commando_F", undefined, variants)
+          eg.communicator.sendMessage(data.friend.id, "Skin set to Checkered Renegade.");
+        }
+
+        if(args[0] == '!variants') {
+          const variants = [{"item":"AthenaCharacter","channel":args[2],"variant":args[3]}];
+    
+          setOutfitVariants(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/" + args[1] + "." + args[1], undefined, variants)
+          eg.communicator.sendMessage(data.friend.id, "Skin set to " + args[1] + ".");
+        } 
 
         });
       

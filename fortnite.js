@@ -2,17 +2,13 @@ const fetch = require("node-fetch");
 const EGClient = require('epicgames-client').Client;
 const Fortnite = require('epicgames-fortnite-client');
 const { ESubGame } = Fortnite;
-const { EPlatform } = require('epicgames-client');
-const { EInputType } = require('epicgames-client');
-const { EPartyPrivacy } = require('epicgames-client');
-const config = require("./config.json");
-
-var EID = config.EID
+const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
+const { email, password, log, CID, BID, EID, PICKAXE_ID, level, banner, banner_color, friendaccept } = require("./config.json");
 
 let eg = new EGClient({ 
-  email: config.email, 
-  password: config.password,
-  debug: console.log,
+  email: email, 
+  password: password,
+  debug: log,
   defaultPartyConfig: {
  	  privacy: EPartyPrivacy.PUBLIC,
   	joinConfirmation: false,
@@ -66,17 +62,17 @@ async function BenBotRequest(cosmeticType, cosmeticSearch) {
         console.log(`Member#${member.id} joined!`);
         console.log(`Members count: ${fortnite.party.members.length}`);
 
-          fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + config.CID + "." + config.CID);
+          fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID + "." + CID);
 
-          fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + config.BID + "." + config.BID);
+          fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
 
-          fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + config.PICKAXE_ID + "." + config.PICKAXE_ID);
+          fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID);
 
-          fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + config.EID + "." + config.EID);
+          fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
 
           fortnite.party.me.setBattlePass(false, 0, 0, 0);
           
-          fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
+          fortnite.party.me.setBanner(level, banner, banner_color);
       });
 
       fortnite.communicator.on('party:invitation', async (invitation) => {
@@ -85,7 +81,7 @@ async function BenBotRequest(cosmeticType, cosmeticSearch) {
       });
 
       fortnite.communicator.on('friend:request', async (friendops) => {
-        if(config.friendaccept == "true") {
+        if(friendaccept == "true") {
           eg.acceptFriendRequest(friendops.friend.id)
         }else {
           eg.declineFriendRequest(friendops.friend.id)

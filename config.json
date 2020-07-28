@@ -5,7 +5,7 @@
     "PICKAXE_ID": "Pickaxe_Lockjaw",
     "banner": "InfluencerBanner57",
     "banned_color": "defaultcolor",
-    "level": "21",
+    "level": 21,
     "status": "JavaScript!",
-    "friendaccept" : "false"
+    "friendaccept" : false
 }

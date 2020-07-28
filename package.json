@@ -16,6 +16,7 @@
     "homepage": "https://github.com/xMistt/fortnitejs-bot#readme",
     "dependencies": {
         "fnbr": "^1.0.0",
-        "colors": "^1.4.0"
+        "colors": "^1.4.0",
+        "node-fetch": "^2.6.0"
     }
 }

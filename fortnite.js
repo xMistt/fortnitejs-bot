@@ -17,33 +17,33 @@ client.on('friend:message', (friendMessage) => {
 
     if(args[0].toLowerCase() == '!cid') {
         client.party.me.setOutfit(args[1])
-        friendMessage.author.sendMessage(`Skin set to ${args[1]}.`);
+        friendMessage.reply(`Skin set to ${args[1]}.`);
         console.log(`Skin set to ${args[1]}.`)
     }
     else if(args[0].toLowerCase() == '!eid') {
         client.party.me.setEmote(args[1])
-        friendMessage.author.sendMessage(`Emote set to ${args[1]}.`);
+        friendMessage.reply(`Emote set to ${args[1]}.`);
         console.log(`Emote set to ${args[1]}.`)
     }
     else if(args[0].toLowerCase() == '!stop') {
         client.party.me.clearEmote()
-        friendMessage.author.sendMessage('Stopped emoting.');
+        friendMessage.reply('Stopped emoting.');
     }
     else if(args[0].toLowerCase() == '!pickaxe_id') {
         client.party.me.setPickaxe(args[1])
-        friendMessage.author.sendMessage(`Pickaxe set to ${args[1]}.`);
+        friendMessage.reply(`Pickaxe set to ${args[1]}.`);
         console.log(`Pickaxe set to ${args[1]}.`)
     }
     else if(args[0].toLowerCase() == '!ready') {
         client.party.me.setReadiness(true)
-        friendMessage.author.sendMessage('Ready!');
+        friendMessage.reply('Ready!');
     }
     else if(args[0].toLowerCase() == '!unready') {
         client.party.me.setReadiness(false)
-        friendMessage.author.sendMessage('Unready!');
+        friendMessage.reply('Unready!');
     }
     else {
-        friendMessage.author.sendMessage('Command not found, are you sure it exists?')
+        friendMessage.reply('Command not found, are you sure it exists?')
     }
 });
 

@@ -1,23 +1,21 @@
 {
-  "name": "fortnitejs-bot",
-  "version": "0.0.1",
-  "description": "Fortnite XMPP client coded in JavaScript.",
-  "main": "fortnite.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xMistt/fortnitejs-bot.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/xMistt/fortnitejs-bot/issues"
-  },
-  "homepage": "https://github.com/xMistt/fortnitejs-bot#readme",
-  "dependencies": {
-    "epicgames-client": "git+https://github.com/Terbau/node-epicgames-client.git",
-    "epicgames-fortnite-client": "git+https://github.com/Terbau/node-epicgames-fortnite-client.git",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.4"
-  }
+    "name": "fortnitejs-bot",
+    "version": "0.0.1",
+    "description": "Fortnite XMPP client coded in JavaScript.",
+    "main": "fortnite.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/xMistt/fortnitejs-bot.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/xMistt/fortnitejs-bot/issues"
+    },
+    "homepage": "https://github.com/xMistt/fortnitejs-bot#readme",
+    "dependencies": {
+        "fnbr": "^1.0.0",
+        "colors": "^1.4.0"
+    }
 }

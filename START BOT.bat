@@ -1,2 +1,2 @@
-npm fortnite.js
+node fortnite.js
 cmd /k

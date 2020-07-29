@@ -5,7 +5,7 @@ const fs = require('fs');
 const config = require('./config.json');
 const deviceAuths = require('./device_auths.json');
 
-console.log('fortnitejs-bot made by xMistt. Massive credit to This Nils for creating the library.'.cyan)
+console.log('fortnitejs-bot made by xMistt. Massive credit to This Nils and Alex for creating the library.'.cyan)
 console.log('Discord server: https://discord.gg/fnpy - For support, questions, etc.'.cyan)
 
 const LookupCosmetic = async (cosmeticType, cosmeticSearch) => {
@@ -15,7 +15,6 @@ const LookupCosmetic = async (cosmeticType, cosmeticSearch) => {
                 + `&backendType=${cosmeticType}`
 
     return (await fetch(url)).json()
-
 };
 
 var authentication = {}
@@ -50,10 +49,10 @@ client.on('deviceauth:created', (deviceAuthCredentials) => {
 
 client.on('ready', () => {
     console.log(`Client ready as ${client.user.displayName}.`.green)
-    // client.setStatus(config.status)
+    client.setStatus(config.status)
 });
 
-client.on('friend:message', (friendMessage) => {
+client.on('friend:message', async (friendMessage) => {
     console.log(`Message from ${friendMessage.author.displayName}: ${friendMessage.content}`)
     var args = friendMessage.content.split(" ");
 
@@ -84,12 +83,12 @@ client.on('friend:message', (friendMessage) => {
         client.party.me.setReadiness(false)
         friendMessage.reply('Unready!');
     }
-    // else if(args[0].toLowerCase() == '!skin') {
-    //     cosmetic = LookupCosmetic("AthenaCharacter", args.slice(1))
-    //     client.party.me.setOutfit(cosmetic.data.id)
-    //     friendMessage.reply(`Skin set to ${cosmetic.data.id}.`);
-    //     console.log(`Skin set to ${cosmetic.data.id}.`)
-    // }
+    else if(args[0].toLowerCase() == '!skin') {
+        cosmetic = await LookupCosmetic("AthenaCharacter", args.slice(1))
+        // client.party.me.setOutfit(cosmetic.data.id)
+        // friendMessage.reply(`Skin set to ${cosmetic.data.id}.`);
+        console.log(`Skin set to ${cosmetic}.`)
+    }
     else {
         friendMessage.reply('Command not found, are you sure it exists?')
     }

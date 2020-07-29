@@ -95,6 +95,12 @@ client.on('friend:message', async (friendMessage) => {
         friendMessage.reply(`Skin set to ${cosmetic.data.id}.`);
         console.log(`Skin set to ${cosmetic.data.id}.`)
     }
+    else if(command == '!emote') {
+        const cosmetic = await LookupCosmetic("AthenaDance", content)
+        client.party.me.setEmote(cosmetic.data.id)
+        friendMessage.reply(`Emote set to ${cosmetic.data.id}.`);
+        console.log(`Emote set to ${cosmetic.data.id}.`)
+    }
     else {
         friendMessage.reply('Command not found, are you sure it exists?')
     }

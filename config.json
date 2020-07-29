@@ -7,5 +7,6 @@
     "banned_color": "defaultcolor",
     "level": 21,
     "status": "JavaScript!",
-    "friendaccept" : false
+    "friendaccept" : false,
+    "debug": false
 }

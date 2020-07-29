@@ -33,6 +33,10 @@ else {
 
 const client = new Client({
     auth: authentication,
+    status: config.status,
+    debug: (config.debug == true) ? console.log : null,
+    httpDebug: config.debug,
+    xmppDebug: config.debug
 });
 
 client.on('deviceauth:created', (deviceAuthCredentials) => {
@@ -47,59 +51,61 @@ client.on('deviceauth:created', (deviceAuthCredentials) => {
     }); 
 });
 
-client.on('ready', () => {
+client.on('ready', async () => {
     console.log(`Client ready as ${client.user.displayName}.`.green)
-    client.setStatus(config.status)
 });
 
 client.on('friend:message', async (friendMessage) => {
     console.log(`Message from ${friendMessage.author.displayName}: ${friendMessage.content}`)
-    var args = friendMessage.content.split(" ");
+    
+    var args = friendMessage.content.split(" ")
+    var command = args[0].toLowerCase()
+    var content = args.slice(1).join(" ")
 
-    if(args[0].toLowerCase() == '!cid') {
+    if(command == '!cid') {
         client.party.me.setOutfit(args[1])
         friendMessage.reply(`Skin set to ${args[1]}.`);
         console.log(`Skin set to ${args[1]}.`)
     }
-    else if(args[0].toLowerCase() == '!eid') {
+    else if(command == '!eid') {
         client.party.me.setEmote(args[1])
         friendMessage.reply(`Emote set to ${args[1]}.`);
         console.log(`Emote set to ${args[1]}.`)
     }
-    else if(args[0].toLowerCase() == '!stop') {
+    else if(command == '!stop') {
         client.party.me.clearEmote()
         friendMessage.reply('Stopped emoting.');
     }
-    else if(args[0].toLowerCase() == '!pickaxe_id') {
+    else if(command == '!pickaxe_id') {
         client.party.me.setPickaxe(args[1])
         friendMessage.reply(`Pickaxe set to ${args[1]}.`);
         console.log(`Pickaxe set to ${args[1]}.`)
     }
-    else if(args[0].toLowerCase() == '!ready') {
+    else if(command == '!ready') {
         client.party.me.setReadiness(true)
         friendMessage.reply('Ready!');
     }
-    else if(args[0].toLowerCase() == '!unready') {
+    else if(command == '!unready') {
         client.party.me.setReadiness(false)
         friendMessage.reply('Unready!');
     }
-    else if(args[0].toLowerCase() == '!skin') {
-        cosmetic = await LookupCosmetic("AthenaCharacter", args.slice(1))
-        // client.party.me.setOutfit(cosmetic.data.id)
-        // friendMessage.reply(`Skin set to ${cosmetic.data.id}.`);
-        console.log(`Skin set to ${cosmetic}.`)
+    else if(command == '!skin') {
+        const cosmetic = await LookupCosmetic("AthenaCharacter", content)
+        client.party.me.setOutfit(cosmetic.data.id)
+        friendMessage.reply(`Skin set to ${cosmetic.data.id}.`);
+        console.log(`Skin set to ${cosmetic.data.id}.`)
     }
     else {
         friendMessage.reply('Command not found, are you sure it exists?')
     }
 });
 
-client.on('party:invite', (partyInvitation) => {
+client.on('party:invite', async (partyInvitation) => {
     partyInvitation.accept()
     console.log(`Accepted party invite from ${partyInvitation.sender.displayName}.`)
 });
 
-client.on('party:member:joined', (partyMember) => {
+client.on('party:member:joined', async (partyMember) => {
     client.party.me.setOutfit(config.CID)
     client.party.me.setBackpack(config.BID)
     client.party.me.setPickaxe(config.PICKAXE_ID)

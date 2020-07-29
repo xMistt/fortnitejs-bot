@@ -53,6 +53,10 @@ client.on('deviceauth:created', (deviceAuthCredentials) => {
 
 client.on('ready', async () => {
     console.log(`Client ready as ${client.user.displayName}.`.green)
+    client.party.me.setOutfit(config.CID)
+    client.party.me.setBackpack(config.BID)
+    client.party.me.setPickaxe(config.PICKAXE_ID)
+    client.party.me.setLevel(config.level)
 });
 
 client.on('friend:message', async (friendMessage) => {
@@ -63,11 +67,16 @@ client.on('friend:message', async (friendMessage) => {
     var content = args.slice(1).join(" ")
 
     if(command == '!cid') {
-        client.party.me.setOutfit(args[1])
-        friendMessage.reply(`Skin set to ${args[1]}.`);
-        console.log(`Skin set to ${args[1]}.`)
+        if(args.length >= 2) {
+            client.party.me.setOutfit(args[1])
+            friendMessage.reply(`Skin set to ${args[1]}.`);
+            console.log(`Skin set to ${args[1]}.`)
+        } else {
+            friendMessage.reply('Please provide a CID.')
+        }
     }
     else if(command == '!eid') {
+        client.party.me.clearEmote()
         client.party.me.setEmote(args[1])
         friendMessage.reply(`Emote set to ${args[1]}.`);
         console.log(`Emote set to ${args[1]}.`)
@@ -91,15 +100,28 @@ client.on('friend:message', async (friendMessage) => {
     }
     else if(command == '!skin') {
         const cosmetic = await LookupCosmetic("AthenaCharacter", content)
-        client.party.me.setOutfit(cosmetic.data.id)
-        friendMessage.reply(`Skin set to ${cosmetic.data.id}.`);
-        console.log(`Skin set to ${cosmetic.data.id}.`)
+        
+        if(cosmetic.status == 200) {
+            client.party.me.setOutfit(cosmetic.data.id)
+            friendMessage.reply(`Skin set to ${cosmetic.data.id}.`);
+            console.log(`Skin set to ${cosmetic.data.id}.`)
+        } else {
+            friendMessage.reply(`Failed to find a skin with the name: ${content}.`)
+            console.log(`Failed to find a skin with the name: ${content}.`)
+        }
     }
     else if(command == '!emote') {
         const cosmetic = await LookupCosmetic("AthenaDance", content)
-        client.party.me.setEmote(cosmetic.data.id)
-        friendMessage.reply(`Emote set to ${cosmetic.data.id}.`);
-        console.log(`Emote set to ${cosmetic.data.id}.`)
+        
+        if(cosmetic.status == 200) {
+            client.party.me.clearEmote()
+            client.party.me.setEmote(cosmetic.data.id)
+            friendMessage.reply(`Emote set to ${cosmetic.data.id}.`);
+            console.log(`Emote set to ${cosmetic.data.id}.`)
+        } else {
+            friendMessage.reply(`Failed to find an emote with the name: ${content}.`)
+            console.log(`Failed to find an emote with the name: ${content}.`)
+        }
     }
     else {
         friendMessage.reply('Command not found, are you sure it exists?')
@@ -112,13 +134,11 @@ client.on('party:invite', async (partyInvitation) => {
 });
 
 client.on('party:member:joined', async (partyMember) => {
-    client.party.me.setOutfit(config.CID)
-    client.party.me.setBackpack(config.BID)
-    client.party.me.setPickaxe(config.PICKAXE_ID)
-    client.party.me.setLevel(config.level)
+    await Client.sleep(2000)
 
-    Client.sleep(2000)
 
+    console.log(config.EID)
+    client.party.me.clearEmote()
     client.party.me.setEmote(config.EID)
 });
 

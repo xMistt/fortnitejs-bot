@@ -1,5 +1,7 @@
 <h1 align="center">fortnitejs-bot</h1>
 
+<p align="center">A Fortnite HTTP/XMPP bot coded in JavaScript with party capabilities.</p>
+
 ---
 
 ## Discord Support
